@@ -8,7 +8,9 @@ and Llama LLMs
 By: Raz Graider, Dana Braynin, Sophie Margolis and Ran Asanta
 
 
+
 Introduction
+
 In recent years, the rapid expansion of social media platforms and online communities has not
 only facilitated greater connectivity and communication but has also revealed a darker side:
 hate speech and online harassment.
@@ -27,7 +29,9 @@ we gained a deeper understanding of the challenges, strengths, and limitations o
 or approach for this specific task.
 
 
+
 Data Preparation
+
 We used 3 data sets we took from Hugging Face 🤗:
 1. stormfront_dataset: Contains data related to hate speech.
 2. wiki_dataset: Consists of toxic comments from Wikipedia.
@@ -49,7 +53,9 @@ average length of each type of comment and also checked the top 15 3-grams-words
 15 3-grams).
 
 
+
 Keras NN
+
 Firstly, performed preprocessing on the train data by removing special characters, removing
 stop words and performing lemmatization. After that, we also applied the preprocessing on the
 validation and test data.
@@ -92,7 +98,9 @@ In this section we also defined the performance metric we will use to compare th
 is accuracy.
 
 
+
 LLM – Prompt Engineering and modeling
+
 In the prompt engineering section, we developed two functions: generate_test_prompt (3.0
 - Prompt generate function) and predict (3.1 - Prompt predict function). The
 generate_test_prompt function creates a test prompt for sentiment analysis tasks, taking a
@@ -108,7 +116,9 @@ advantages and disadvantages. The results of this section are shown below in the
 comparing the models.
 
 
+
 LLM – Fine Tuning
+
 In this section, we experimented with the fine-tuning strategy, which involves training a subset of
 parameters of a pre-trained model on a specific dataset to enhance its performance for a
 particular task or domain. As models grow larger, full fine-tuning, which entails retraining all the
@@ -130,9 +140,12 @@ After that, we were ready to run the trained fine-tuned models. We examine their
 as the previous parts, in the next comparison part.
 
 
+
 Comparison
+
 For this part we connected to WandB’s reports (5.0 - Train reports) to explore the trainer better
 and these are our conclusions (more in depth explanations are in the notebook):
+
 ● Runtime
 In both Mistral and Llama-2 models, the time taken for training exceeds that of
 evaluation. Moreover, it's observed that both training and evaluation times for Llama-2
@@ -148,6 +161,7 @@ noteworthy that both models achieved evaluation accuracies exceeding 90%.
 ● GPU Power Usage
 Both Mistral and Llama-2 models heavily utilize the GPU, often reaching approximately
 100% usage.
+
 
 
 In this part we also examined the results from all the tests we ran during the project (5.1 - Test
@@ -176,6 +190,7 @@ percentage of usage in the training data compared to others.
 Keras demonstrated the shortest runtime (3 minutes), while Mistral-7b Fine Tuning
 exhibited the longest runtime (144 minutes). Notably, Fine Tuning models showed
 significantly higher runtime compared to Prompt Engineering and Keras models.
+
 
 
 We also had general conclusions and questions:
@@ -221,7 +236,9 @@ superior performance over different iterations of Llama models, notably outperfo
 Llama-2-7b.
 
 
+
 Explainability
+
 It is challenging to obtain explainability from LLMs due to their complexity and size. To address
 the challenge of the lack of explainability in LLMs, we decided to use prompt engineering. In this
 approach, instead of directly interpreting the model's internal mechanisms, we designed a
